@@ -1,6 +1,51 @@
-.header-app {
+.header {
     width: 100%;
     min-height: 6rem;
     background-color: #111214;
     border-radius: 1rem 1rem 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 4rem;
+    color: #ddd;
+    letter-spacing: 0.1rem;
+}
+
+.search-bar {
+    position: relative;
+}
+
+.search-bar input {
+    width: 15rem;
+    height: 3rem;
+    background-color: #060709;
+    border: none;
+    border-radius: 1rem;
+    padding: 0 3rem 0 2rem;
+    color: #ddd;
+    transition: width 0.3s;
+}
+
+.search-bar input:focus {
+    width: 26rem;
+}
+
+.search-bar input:focus::placeholder {
+    color: transparent;
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    color: #bbb;
+    font-size: 1.4rem;
 }
