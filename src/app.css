@@ -36,6 +36,15 @@
     background-color: #111214;
     border-radius: 1rem;
     margin-bottom: 1rem;
+    position: relative;
+}
+
+.news-headline img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    border-radius: 1rem;
 }
 
 .news-grid {
@@ -43,6 +52,13 @@
     height: 50%;
     background-color: #111214;
     border-radius: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .blogs {
@@ -57,4 +73,25 @@
     display: flex;
     flex-direction: column;
     row-gap: 1rem;
+}
+
+.news-headline-title {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1rem 4rem 1rem 1rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(1.5rem, 1.8cqi, 3rem);
+    letter-spacing: 0.1rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 0 0 1rem 1rem;
+}
+
+.bookmark {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    cursor: pointer;
 }

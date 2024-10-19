@@ -5,6 +5,7 @@ import { Weather } from "./Components/Weather"
 import { Header } from "./Components/Header"
 import "./app.css"
 import { Navbar } from "./Components/Navbar"
+import { NewsItem } from "./Components/NewsItem"
 
 
 export const App = () => {
@@ -15,8 +16,17 @@ export const App = () => {
                 <div className="content">
                     <Navbar />
                     <div className="news">
-                        <div className="news-headline">Headline</div>
-                        <div className="news-grid">News grid</div>
+                        <div className="news-headline">
+                            <img alt="Headline image" src="/public/images/tech.jpg" />
+                            <h2 className="news-headline-title">
+                                Nullam vehicula ipsum a arcu cursus vitae congue mauris rhoncus.
+                                <i className="fa-regular fa-bookmark bookmark"></i>
+                            </h2>
+                        </div>
+                        <div className="news-grid">
+                            
+                            <NewsItem />
+                        </div>
                     </div>
                     <div className="blogs">
                         <Blogs />
