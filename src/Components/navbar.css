@@ -1,5 +1,5 @@
 .navbar {
-    width: 18rem;
+    width: 16rem;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -11,6 +11,25 @@
     height: 30%;
     background-color: #111214;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+    cursor: pointer;
+}
+
+.user img {
+    width: 7rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.user p {
+    font-family: "Comfortaa", sans-sherif;
+    font-size: 1.5rem;
+    color: #ddd;
 }
 
 .categories {
@@ -18,4 +37,35 @@
     height: calc(70% - 1rem);
     background-color: #111214;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 1rem;
+}
+
+.nav-heading {
+    font-family: "Bebas Neue", sans-sherif;
+    font-size: clamp(1.5rem, 2.5cqi, 3rem);
+    color: #ddd;
+    letter-spacing: .1rem;
+    margin-bottom: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.3rem;
+}
+
+.navlink {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #ddd;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+
+.navlink i {
+    font-size: 1.5rem;
+    margin-left: 1rem;
 }
