@@ -1,11 +1,16 @@
 import "./newsitem.css"
+import { NewsType } from "./../types/newsType"
 
-export const NewsItem = () => {
+type Props = {
+    article: NewsType
+}
+
+export const NewsItem = ({ article }: Props) => {
     return (
         <div className="news-grid-item">
-            <img alt="image item" src="/public/images/sports.jpg" />
+            <img alt={article.title} src={article.urlToImage} />
             <h3 className="">
-                Maecenas ultricies mi eget mauris pharetra et ultrices neque ornare?
+                {article.title}
                 <i className="fa-regular fa-bookmark bookmark"></i>
             </h3>
         </div>
