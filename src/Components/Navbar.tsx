@@ -1,6 +1,22 @@
+import { useState } from "react";
+import { CategoryType } from "../types/categoryType";
 import "./navbar.css"
 
-export const Navbar = () => {
+type Props = {
+    handleCategoryClick: (e: React.SyntheticEvent, category: CategoryType) => void;
+}
+
+export const Navbar = ({ handleCategoryClick }: Props) => {
+    const [selected, setSelected] = useState<CategoryType>("business")
+    
+    const categories: CategoryType[] = ["business", "entertainment", "general",
+        "health", "science", "sports", "technology"];
+
+    const handleSelect = (e: React.SyntheticEvent, category: CategoryType) => {
+        setSelected(category)
+        handleCategoryClick(e, category)
+    }
+
     return (
         <div className="navbar">
             <div className="user">
@@ -10,15 +26,16 @@ export const Navbar = () => {
             <nav className="categories">
                 <h1 className="nav-heading">Categories</h1>
                 <div className="nav-links">
-                    <a href="#" className="navlink">Bussiness</a>
-                    <a href="#" className="navlink">Entertainment</a>
-                    <a href="#" className="navlink">General</a>
-                    <a href="#" className="navlink">Health</a>
-                    <a href="#" className="navlink">Sports</a>
-                    <a href="#" className="navlink">Science</a>
-                    <a href="#" className="navlink">Technology</a>
-                    <hr />
-                    <a href="#" className="navlink">Bookmarks <i className="fa-regular fa-bookmark"></i></a>
+                    {categories.map(category => (
+                        <a
+                            key={category}
+                            href="#"
+                            className={`navlink ${selected === category ? 'selected' : ''}`}
+                            onClick={e => handleSelect(e, category)}
+                        >
+                            {category.charAt(0).toUpperCase() + category.slice(1)}
+                        </a>
+                    ))}
                 </div>
             </nav>
         </div>

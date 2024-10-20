@@ -8,16 +8,17 @@ import { Navbar } from "./Components/Navbar"
 import { NewsItem } from "./Components/NewsItem"
 import { useEffect, useState } from "react"
 import { NewsType } from "./types/newsType"
+import { CategoryType } from "./types/categoryType"
 
 
 export const App = () => {
     const [headline, setHeadline] = useState<NewsType | null>(null)
     const [news, setNews] = useState([])
+    const [selectedCategory, setSelectedCategory] = useState<CategoryType>("business")
     const pageSize = 7
     const myAPIKey = import.meta.env.VITE_NEWSAPI_KEY
-    const searchTerm = ""
-    const category = "general"
-    const URL = `https://newsapi.org/v2/top-headlines?q=${searchTerm}&category=${category}`
+    const [searchTerm, setSearchTerm] = useState("")
+    const URL = `https://newsapi.org/v2/top-headlines?q=${searchTerm}&category=${selectedCategory}`
         + `&sortBy=publishedAt&pageSize=${pageSize}&apiKey=${myAPIKey}`
 
     useEffect(() => {
@@ -38,12 +39,17 @@ export const App = () => {
     }, [URL])
 
 
+    const handleCategoryClick = (e: React.SyntheticEvent, category: CategoryType) => {
+        e.preventDefault()
+        setSelectedCategory(category)
+    }
+
     return (
         <div className="container">
             <div className="news-blogs-app mylayouts">
                 <Header />
                 <div className="content">
-                    <Navbar />
+                    <Navbar handleCategoryClick={handleCategoryClick} />
                     {headline && (
                         <>
                             <div className="news">
@@ -57,7 +63,7 @@ export const App = () => {
                                 </div>
                                 <div className="news-grid">
                                     {news && news.map((article, index) => (
-                                        <NewsItem key={index} article={article}/>
+                                        <NewsItem key={index} article={article} />
                                     ))}
                                 </div>
                             </div>
